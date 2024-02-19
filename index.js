@@ -1,4 +1,4 @@
-const magicEightBallResponses = [
+const magicBallResponses = [
   'Безсумнівно',
   'Передбачено',
   'Немає сумнівів',
@@ -25,25 +25,19 @@ const ball = document.querySelector('.ball-container');
 const textInput = document.querySelector('.ball-container__text');
 
 textInput.addEventListener('click', () => {
-  textInput.classList.remove('fadeOut');
   textInput.classList.remove('fadeIn');
   ball.classList.add('ball-container--shake-animation');
   textInput.classList.add('fadeOut');
 
   setTimeout(() => {
-    const randomIndex = Math.floor(
-      Math.random() * magicEightBallResponses.length
-    );
-    const randomResponse = magicEightBallResponses[randomIndex];
-    textInput.classList.add('fadeIn');
+    const randomIndex = Math.floor(Math.random() * magicBallResponses.length);
+    const randomResponse = magicBallResponses[randomIndex];
+
     textInput.textContent = randomResponse;
+    textInput.style = 'color:#07f833;';
+    textInput.classList.add('fadeIn');
 
     textInput.classList.remove('fadeOut');
     ball.classList.remove('ball-container--shake-animation');
-
-    // setTimeout(() => {
-    //   textInput.classList.remove('fadeOut');
-    //   textInput.classList.remove('fadeIn');
-    // }, 500);
   }, 600);
 });
