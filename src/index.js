@@ -1,3 +1,5 @@
+import './style/style.scss';
+
 const magicBallResponses = [
   'Безсумнівно',
   'Передбачено',
