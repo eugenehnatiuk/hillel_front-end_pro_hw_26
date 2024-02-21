@@ -21,10 +21,17 @@ module.exports = (env) => {
       }),
       new MiniCssExtractPlugin({ filename: 'style.[contenthash].css' }),
 
-      
       new webpack.ProgressPlugin(),
       // to see the building progression
     ],
+    optimization: {
+      minimizer: [
+        new CssMinimizerPlugin({
+          test: /\.css$/i,
+          parallel: 4,
+        }),
+      ],
+    },
     module: {
       rules: [
         {
@@ -59,14 +66,6 @@ module.exports = (env) => {
             },
           },
         },
-      ],
-    },
-    optimization: {
-      minimizer: [
-        new CssMinimizerPlugin({
-          test: /\.foo\.css$/i,
-          parallel: 4,
-        }),
       ],
     },
   };
